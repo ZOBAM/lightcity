@@ -246,7 +246,7 @@ section#events > div div.events-container div:hover {
 }
 
 footer {
-  background-color: #1E3A8A;
+  background-image: linear-gradient(#1E3A8A, black);
 }
 footer > section .col {
   text-align: center;
@@ -268,9 +268,10 @@ footer a {
   display: block;
   color: aliceblue;
   padding-top: 0.2rem;
+  text-decoration: none;
 }
 footer .copyright {
-  border-top: 3px solid rgb(3, 36, 99);
+  border-top: 3px solid rgb(1, 9, 26);
   text-align: center;
   padding: 0.5rem 0px;
   background-color: black;

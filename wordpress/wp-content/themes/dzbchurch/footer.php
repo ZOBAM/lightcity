@@ -5,7 +5,7 @@
       <ul>
         <a>Blog Posts</a>
         <a>Events</a>
-        <a>Support Us</a>
+        <a href="<?php echo site_url('/support-us') ?>">Support Us</a>
       </ul>
     </div>
     <div class="col-6 col-md-3">
@@ -19,17 +19,17 @@
     <div class="col-6 col-md-3">
       <h3 class="text-center">Information</h3>
       <ul>
-        <a>About Us</a>
-        <a>Our Belief</a>
-        <a>Mission & Vision</a>
+        <a href="<?php echo site_url('/about-us') ?>">About Us</a>
+        <a href="<?php echo site_url('/our-belief') ?>">Our Belief</a>
+        <a href="<?php echo site_url('/about-us#vision') ?>">Mission & Vision</a>
       </ul>
     </div>
     <div class="col-6 col-md-3">
       <h3 class="text-center">Social</h3>
       <ul>
-        <a>Facebook</a>
+        <a href="https://web.facebook.com/Light-City-Evangelical-Center-Intl-103591924583397">Facebook</a>
         <a>Instagram</a>
-        <a>Youtube</a>
+        <a href="https://www.youtube.com/channel/UC7TdzCrIuw73dbInqU8Gb6w/featured" target="_blank">Youtube</a>
       </ul>
     </div>
   </section>

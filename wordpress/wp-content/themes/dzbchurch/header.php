@@ -30,16 +30,16 @@
                             <a class="nav-link active" aria-current="page" href="/">Home</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="/about">About</a>
+                            <a class="nav-link" href="<?php echo site_url('/about-us') ?>">About</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="/contact">Contact</a>
+                            <a class="nav-link" href="<?php echo site_url('/contact-us') ?>">Contact</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="/support">Support Us</a>
+                            <a class="nav-link" href="<?php echo site_url('/support-us') ?>">Support Us</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="/our_belief">Our Belief</a>
+                            <a class="nav-link" href="<?php echo site_url('/our-belief') ?>">Our Belief</a>
                         </li>
                     </ul>
                 </div>

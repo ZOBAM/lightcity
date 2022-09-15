@@ -152,7 +152,7 @@
             <h2 class="text-center"><i class="fa-brands fa-youtube" style="color:#FBBF24"></i> Featured Video</h2>
             <section class="col-12 col-md-8 text-bg-light p-2 text-center">
                 <div class="m-2 aspect-w-16 aspect-h-9 " style="max-width: 100%; overflow:hidden">
-                    <iframe src="https://www.youtube.com/embed/XxkNj5hcy5E" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen></iframe>
+                    <iframe src="https://www.youtube.com/embed/dtz2QStZqNs" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen></iframe>
                 </div>
             </section>
             <aside class="col-12 col-md-4 px-2 md:px-12 w-full md:w-1/2 bg-gray-100">
@@ -193,21 +193,21 @@
                 </p>
             </div>
             <div class="events-container row text-center">
-                <div class="col-sm-3 current bg-indigo-800 text-white cursor-pointer transition-colors duration-500 p-4 border-2 w-1/2 md:w-1/4 hover:bg-indigo-800 hover:text-white hover:text-xl">
+                <div class="col-sm-3 p-4">
                     Vigil
-                    <span class="d-block  hover:bg-indigo-800">14th May, 2021</span>
+                    <span class="d-block event-date">14th May, 2021</span>
                 </div>
-                <div class="col-sm-3 cursor-pointer transition-colors duration-500 p-4 border-2 w-1/2 md:w-1/4 hover:bg-indigo-800 hover:text-white">
+                <div class="col-sm-3 p-4">
                     Vigil
-                    <span class="d-block">28th May, 2021</span>
+                    <span class="d-block event-date">28th May, 2021</span>
                 </div>
-                <div class="col-sm-3 cursor-pointer transition-colors duration-500 p-4 border-2 w-1/2 md:w-1/4 hover:bg-indigo-800 hover:text-white">
+                <div class="col-sm-3 p-4">
                     Vigil
-                    <span class="d-block">11th June, 2021</span>
+                    <span class="d-block event-date">11th June, 2021</span>
                 </div>
-                <div class="col-sm-3 cursor-pointer p-4 border-2 w-1/2 md:w-1/4 font-semibold hover:bg-indigo-800 hover:text-white">
+                <div class="col-sm-3 p-4">
                     Vigil
-                    <span class="d-block">25th June, 2021</span>
+                    <span class="d-block event-date">25th June, 2021</span>
                 </div>
             </div>
             <!-- <div class="flex justify-center items-center mt-4 mb-10">
@@ -218,5 +218,62 @@
         </div>
     </section>
 </main>
+<script>
+    //get the number of days in month
+    function daysInMonth(month, year) {
+        return new Date(year, month + 1, 0).getDate();
+    }
 
+    function getVigilDays(dateObject) {
+        //get the current date
+        let d = dateObject;
+        //extract date variable
+        let year = d.getFullYear();
+        let month = d.getMonth();
+        let day = d.getDate();
+
+        let numDays = daysInMonth(d.getMonth(), d.getFullYear())
+        let str = '';
+        let firstFriday = null;
+        for (let i = 1; i <= numDays; i++) {
+            let newDate = new Date(year, month, i);
+            console.log(newDate.getDay());
+            str += '__' + i + '__';
+            if (newDate.getDay() == 5) {
+                firstFriday = i;
+                break;
+            }
+        }
+        let secondFriday = firstFriday + 7;
+        let lastFriday = firstFriday < 3 ? firstFriday + 7 * 4 : firstFriday + 7 * 3;
+        let secondFridayDate = new Date(year, month, secondFriday);
+        let lastFridayDate = new Date(year, month, lastFriday);
+        return [secondFridayDate.toDateString(), lastFridayDate.toDateString()];
+    }
+    let date1 = new Date();
+    let date2 = new Date(date1.getFullYear(), date1.getMonth() + 1);
+    let allDays = [...getVigilDays(date1), ...getVigilDays(date2)]
+
+    let eventDates = document.getElementsByClassName('event-date');
+    let next = false;
+    for (let i = 0; i < eventDates.length; i++) {
+        eventDates[i].style.fontWeight = 'bolder';
+        eventDates[i].textContent = allDays[i];
+        if (!next) {
+            let list = eventDates[i].parentElement.classList;
+            if (checkDate(allDays[i])) {
+                // eventDates[i].style.color = 'blue';
+                list.add("current");
+                // eventDates[i].parentElement.style.backgroundColor = 'purple';
+                next = true;
+            }
+        }
+    }
+
+    function checkDate(date) {
+        let now = new Date().getTime();
+        let refDate = new Date(date).getTime();
+        return refDate > now;
+    }
+</script>
 <?php get_footer();
