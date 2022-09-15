@@ -245,7 +245,11 @@
             }
         }
         let secondFriday = firstFriday + 7;
-        let lastFriday = firstFriday < 3 ? firstFriday + 7 * 4 : firstFriday + 7 * 3;
+        let lastFriday = firstFriday < 4 ? firstFriday + 7 * 4 : firstFriday + 7 * 3;
+        //in case lastFriday from above calculation is bigger than days in a month.
+        if (lastFriday > numDays) {
+            lastFriday -= 7;
+        }
         let secondFridayDate = new Date(year, month, secondFriday);
         let lastFridayDate = new Date(year, month, lastFriday);
         return [secondFridayDate.toDateString(), lastFridayDate.toDateString()];
