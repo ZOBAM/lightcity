@@ -17,22 +17,45 @@
         </div>
     </div>
     <!-- image gallery -->
+    <?php
+    $args = array(
+        'post_type' => 'attachment',
+        'post_mime_type' => 'image',
+        'post_status' => 'inherit',
+        'posts_per_page' => 5,
+        'orderby' => 'rand'
+    );
+    $query_images = new WP_Query($args);
+    $images = array();
+    foreach ($query_images->posts as $image) {
+        $images[] = $image->guid;
+    }
+    ?>
     <section class="image-gallery">
         <div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="false">
             <div class="carousel-indicators">
-                <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
-                <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1" aria-label="Slide 2"></button>
-                <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2" aria-label="Slide 3"></button>
+                <?php
+                for ($i = 0; $i < count($images); $i++) {
+                ?>
+                    <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="<?php echo $i; ?>" class="<?php if ($i == 0) echo 'active' ?>" aria-current="<?php if ($i == 0) echo 'true'; ?>" aria-label="Slide <?php echo ($i + 1); ?>"></button>
+                <? } ?>
+                <!-- <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1" aria-label="Slide 2"></button>
+                <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2" aria-label="Slide 3"></button> -->
             </div>
             <div class="carousel-inner">
-                <div class="carousel-item active">
-                    <img src="<?php echo get_theme_file_uri('/images/image1.png'); ?>" class="d-block w-100" alt="...">
-                    <div class="carousel-caption d-none d-md-block">
+                <!-- use php to get uploaded images from media lib -->
+                <?php
+                for ($i = 0; $i < count($images); $i++) {
+                ?>
+                    <div class="carousel-item <?php if ($i == 0) echo 'active' ?>">
+                        <img src="<?php echo $images[$i]; ?>" class="d-block w-100" alt="...">
+                        <!-- <div class="carousel-caption d-none d-md-block">
                         <h5>First slide label</h5>
                         <p>Some representative placeholder content for the first slide.</p>
+                    </div> -->
                     </div>
-                </div>
-                <div class="carousel-item">
+                <?php } ?>
+                <!-- <div class="carousel-item">
                     <img src="<?php echo get_theme_file_uri('/images/image2.png'); ?>" class="d-block w-100" alt="...">
                     <div class="carousel-caption d-none d-md-block">
                         <h5>Second slide label</h5>
@@ -45,7 +68,7 @@
                         <h5>Third slide label</h5>
                         <p>Some representative placeholder content for the third slide.</p>
                     </div>
-                </div>
+                </div> -->
             </div>
             <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
                 <span class="carousel-control-prev-icon" aria-hidden="true"></span>
@@ -152,7 +175,7 @@
             <h2 class="text-center"><i class="fa-brands fa-youtube" style="color:#FBBF24"></i> Featured Video</h2>
             <section class="col-12 col-md-8 text-bg-light p-2 text-center">
                 <div class="m-2 aspect-w-16 aspect-h-9 " style="max-width: 100%; overflow:hidden">
-                    <iframe src="https://www.youtube.com/embed/dtz2QStZqNs" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen></iframe>
+                    <iframe src="https://www.youtube.com/embed/gwITF-ximOI" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen></iframe>
                 </div>
             </section>
             <aside class="col-12 col-md-4 px-2 md:px-12 w-full md:w-1/2 bg-gray-100">
@@ -237,7 +260,7 @@
         let firstFriday = null;
         for (let i = 1; i <= numDays; i++) {
             let newDate = new Date(year, month, i);
-            console.log(newDate.getDay());
+            // console.log(newDate.getDay());
             str += '__' + i + '__';
             if (newDate.getDay() == 5) {
                 firstFriday = i;

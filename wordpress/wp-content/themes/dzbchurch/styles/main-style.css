@@ -184,7 +184,7 @@ section#video aside {
   padding: 6.5vw;
   text-align: center;
   position: relative;
-  background-image: linear-gradient(rgba(0, 0, 0, 0.781), rgba(255, 255, 255, 0.781));
+  background-image: linear-gradient(rgba(230, 220, 220, 0.781), rgba(255, 255, 255, 0.781));
 }
 section#video aside > div {
   background-color: #fff;

@@ -3,7 +3,7 @@
     <div class="col-6 col-md-3">
       <h3 class="text-center">Quick Links</h3>
       <ul>
-        <a>Blog Posts</a>
+        <a href="/">Home</a>
         <a>Events</a>
         <a href="<?php echo site_url('/support-us') ?>">Support Us</a>
       </ul>
