@@ -81,6 +81,14 @@
         </div>
     </section>
     <!-- the word of the Spirit section -->
+    <?php
+    $wotsposts = get_posts(array(
+        'category_name' => 'wots',
+        'order' => 'DESC'
+    ));
+    $wotspost = $wotsposts[0];
+    $post_time = strtotime($wotspost->post_date);
+    ?>
     <section class="wots " style="background-image: url(<?php echo get_theme_file_uri('/images/wots_bg.png'); ?>)">
         <div class="wots-heading d-flex">
             <h2 class="text-3xl font-medium bg-white px-4 pb-2 rounded-b-xl">
@@ -94,76 +102,16 @@
                 <div class="shadow-md p-4 bg-white pb-10 text-lg">
                     <h3 class="text-center">
                         <span class="d-inline-block " style="width: 1rem; height: 2rem;background-color: #FBBF24; "></span>
-                        WORDS ARE POWERFUL, CHOOSE TO SPEAK RIGHTLY
+                        <?php echo $wotspost->post_title ?>
                     </h3>
                     <h4 class="wots-ref-verse ">
-                        For in many things we offended all. If any man offend not in
-                        word, the same is a perfect man, and able also to bridle the
-                        whole body ( James 3:2)
+                        <?php echo $wotspost->post_excerpt ?>
                     </h4>
-                    <p class="p">
-                        The word you Speak are a true measure of your Spirituality. It
-                        makes no difference what others might think or say about you.
-                        What matters are the words that come out of your mouth every
-                        day, irrespective of who you may be talking to; God, men,
-                        yourself, circumstances, or nature. Be sure to only and always
-                        Speak faith-filled and spirit - filled words.
-                    </p>
-                    <p class="p">
-                        The Apostle James likened the tongue to the rudder of a great
-                        ship that the captain uses to navigate the ship aright,
-                        irrespective of the fierce winds driving against it( James
-                        3:4-5). This means that with your words, you can keep yourself
-                        in health, in faith, in success, and in excellence. Don't talk
-                        fear, lack or your inabilities. Consciously Speak faith-filled
-                        word.
-                    </p>
-                    <div>
-                        <p class="p">
-                            There is no need praying and asking God to make His promises
-                            real in your life; they are already real. Simply acknowledge
-                            and affirm who you are in Christ and your inheritance in Him
-                            and walk accordingly. Don't say, "Lord you promised to bless
-                            me; you promised to make me fruitful; rather, say, *Lord, I
-                            thank you for you have blessed me with all things; you have
-                            made me fruitful and productive." Hallelujah!!
-                        </p>
-                        <p class="p">
-                            It's wonderful that with your faith-filled words, you can
-                            disallow sickness, diseases, infirmities and weakness from
-                            your body. Always Speak health, strength and abundance. Use
-                            your tongue to come out of depressions, trouble, poverty and
-                            frustrations. Today,where you are, and what you are in life,
-                            are the result of Yesterday's words. Jesus said you shall have
-                            what you say ( Mark 11:23). Therefore, beautify your life with
-                            faith-filled words.
-                        </p>
-
-                        <h4 class="font-bold">Prayer Points</h4>
-                        <ol class="">
-                            <li>
-                                Appreciate God for the gift of His words that transform your
-                                life every day.
-                            </li>
-                            <li>
-                                Begin to confess and prophecy good, faith-filled and
-                                edifying words concerning your marriage, education, finances
-                                etc.
-                            </li>
-                            <li>
-                                begin now to confess and exercise Dominion over Satan and
-                                circumstances of life in your life that are very negative.
-                            </li>
-                            <li>
-                                Begin to confess it, I am a Victor in Christ Jesus, I am
-                                reigning with Christ.
-                            </li>
-                        </ol>
-                    </div>
+                    <?php echo $wotspost->post_content ?>
                 </div>
                 <div class="wots-date ">
                     <span class="border-b-2 border-yellow-400 p-1 text-center text-white font-bold">
-                        30th Apr. <br /> 2021
+                        <?php echo date('M d') . ',<br />' . date('Y') ?>
                     </span>
                 </div>
             </div>
@@ -183,21 +131,21 @@
                     <div class="mission-title position-relative">
                         <h3 class="position-relative">
                             <div class="left-box"> </div>
-                            IKPAPKARA
-                            <span style="color: #ECB733; padding-left:.5rem; font-size: 2.5rem">2019</span>
+                            ISHIELU
+                            <span style="color: #ECB733; padding-left:.5rem; font-size: 2.5rem">2020</span>
                             <div class="right-box"> </div>
                         </h3>
                     </div>
                     <p>
-                        “if you take a step towards Jesus, He will run a thousand miles to embrace you. Yes, He loves you that much”
+                        “Jesus is the Word of God Himself, Jesus is faith but Jesus needed the oil (The Anointing)” <br>
                         <span style="font-weight: bolder; color:blue">__Evang. Emmanuel Nkpume</span>
                     </p>
                     <div>
                         <p>
-                            The Ikpapkara Missionary Outreach was a great one with many and different kinds of encounter with God.
+                            Ishielu Missionary Outreach was a great one with specific focus on Ministers of the Gospel.
                         </p>
                         <p>
-                            Here, the Vision Bearer and President of Light City, Evang. Emmanuel Nkpume shares the word of salvation and ministers healing to the natives.
+                            Here, the Vision Bearer and President of Light City, <strong>Evang. Emmanuel Nkpume</strong> shares the word of God and ministers to the Ministers.
                         </p>
                     </div>
                 </div>
@@ -211,7 +159,7 @@
         </h2>
         <div class="p-4">
             <div class="events-header w-3/4 m-auto">
-                <p>
+                <p class="text-center">
                     Don't miss any of our several Spirit filled and power packed programs and events by keeping tabs on this events section.
                 </p>
             </div>

@@ -27,7 +27,7 @@
                     </a>
                     <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                         <li class="nav-item">
-                            <a class="nav-link active" aria-current="page" href="/">Home</a>
+                            <a class="nav-link" aria-current="page" href="/">Home</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="<?php echo site_url('/about-us') ?>">About</a>
@@ -48,4 +48,22 @@
         <section class="hero-section">
             <img src="<?php echo get_theme_file_uri('/images/lc_header.png'); ?>" class="img-fluid" alt="light city header image" />
         </section>
+        <script>
+            let navLinks = document.getElementsByClassName('nav-link');
+            for (let link of navLinks) {
+                let classList = link.classList;
+                let linkText = link.textContent.toLowerCase().split(' ')[0];
+                let locationText = String(window.location);
+                console.log(linkText, locationText, locationText.split(/[a-z]\//).length, window.location.host);
+                if (locationText.includes(linkText)) {
+                    classList.add('active');
+                }
+                //for the homepage
+                else if (locationText.split(/[a-z]\//).length == 2 && linkText.includes('home')) {
+                    console.log('adding class', locationText.split(/[a-z]\//).length);
+                    classList.add('active');
+                }
+                // link.style.border = '1px solid white';
+            }
+        </script>
     </header>
