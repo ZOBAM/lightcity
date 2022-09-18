@@ -1,6 +1,6 @@
 <footer class="container-fluid text-white p-0">
   <section class="row justify-around p-4 bg-blue-900 flex-wrap">
-    <div class="col-6 col-md-3">
+    <div class="col-12 col-sm-6 col-md-3">
       <h3 class="text-center">Quick Links</h3>
       <ul>
         <a href="/">Home</a>
@@ -8,7 +8,7 @@
         <a href="<?php echo site_url('/support-us') ?>">Support Us</a>
       </ul>
     </div>
-    <div class="col-6 col-md-3">
+    <div class="col-12 col-sm-6 col-md-3">
       <h3 class="text-center">Privacy/Terms</h3>
       <ul>
         <a>Privacy Policy</a>
@@ -16,7 +16,7 @@
         <a>Cookies Policy</a>
       </ul>
     </div>
-    <div class="col-6 col-md-3">
+    <div class="col-12 col-sm-6 col-md-3">
       <h3 class="text-center">Information</h3>
       <ul>
         <a href="<?php echo site_url('/about-us') ?>">About Us</a>
@@ -24,7 +24,7 @@
         <a href="<?php echo site_url('/about-us#vision') ?>">Mission & Vision</a>
       </ul>
     </div>
-    <div class="col-6 col-md-3">
+    <div class="col-12 col-sm-6 col-md-3">
       <h3 class="text-center">Social</h3>
       <ul>
         <a href="https://web.facebook.com/Light-City-Evangelical-Center-Intl-103591924583397">Facebook</a>

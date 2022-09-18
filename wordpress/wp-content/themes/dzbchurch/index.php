@@ -22,7 +22,7 @@
         'post_type' => 'attachment',
         'post_mime_type' => 'image',
         'post_status' => 'inherit',
-        'posts_per_page' => 5,
+        'posts_per_page' => 10,
         'orderby' => 'rand'
     );
     $query_images = new WP_Query($args);
@@ -32,7 +32,7 @@
     }
     ?>
     <section class="image-gallery">
-        <div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="false">
+        <div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="carousel">
             <div class="carousel-indicators">
                 <?php
                 for ($i = 0; $i < count($images); $i++) {
@@ -89,7 +89,7 @@
     $wotspost = $wotsposts[0];
     $post_time = strtotime($wotspost->post_date);
     ?>
-    <section class="wots " style="background-image: url(<?php echo get_theme_file_uri('/images/wots_bg.png'); ?>)">
+    <section class="wots px-0 px-md-4" style="background-image: url(<?php echo get_theme_file_uri('/images/wots_bg.png'); ?>)">
         <div class="wots-heading d-flex">
             <h2 class="text-3xl font-medium bg-white px-4 pb-2 rounded-b-xl">
                 <span class="">W</span>ords of The Spirit
@@ -98,7 +98,7 @@
         </div>
 
         <div class="wots-body ">
-            <div class="w-full p-4 bg-gradient-to-b from-gray-500 to-black rounded-b-3xl">
+            <div class="w-full px-1 p-md-4 ">
                 <div class="shadow-md p-4 bg-white pb-10 text-lg">
                     <h3 class="text-center">
                         <span class="d-inline-block " style="width: 1rem; height: 2rem;background-color: #FBBF24; "></span>
